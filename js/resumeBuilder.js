@@ -78,7 +78,31 @@ var bio = {
             }
         ],
         "display": function() {
+            for (var school in this.schools) {
+                var formattedName = HTMLschoolName.replace("%data%", this.schools[school].name);
+                var formattedDegree = HTMLschoolDegree.replace("%data%", this.schools[school].degree);
+                var formattedDates = HTMLschoolDates.replace("%data%", this.schools[school].dates);
+                var formattedLocation = HTMLschoolLocation.replace("%data%", this.schools[school].location);
 
+                $('#education').append(HTMLschoolStart);
+                $('.education-entry:last').append(formattedName);
+                $('.education-entry:last').append(formattedDegree);
+                $('.education-entry:last').append(formattedDates);
+                $('.education-entry:last').append(formattedLocation);
+            }
+
+            for (var course in this.onlineCourses) {
+                var formattedName = HTMLonlineSchool.replace("%data%", this.onlineCourses[course].school);
+                var formattedTitle = HTMLonlineTitle.replace("%data%", this.onlineCourses[course].title);
+                var formattedDates = HTMLonlineDates.replace("%data%", this.onlineCourses[course].dates);
+                var formattedURL = HTMLonlineURL.replace("%data%", this.onlineCourses[course].url);
+
+                $('#education').append(HTMLschoolStart);
+                $('.education-entry:last').append(formattedName);
+                $('.education-entry:last').append(formattedTitle);
+                $('.education-entry:last').append(formattedDates);
+                $('.education-entry:last').append(formattedURL);
+            }
         }
     },
     work = {
